@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTech</title>
+    <link rel="stylesheet" href="indexstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="transitions.css">
+</head>
+
+<body>
+
+    <nav>
+        <h1>EcoTech</h1>
+        <ul class="nav-links">
+            <li><a href="#why-sustainability">About</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="features.html#features">Features</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#map">Location</a></li>
+        </ul>
+    </nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="fade-in">Eco-Tech</h1>
+        <p class="tagline">"Innovating for a Greener Tomorrow"</p>
+        <a href="features.html" class="cta-button fade-in-button">Learn More</a> 
+    </div>
+    <div class="floating-leaves"></div>
+</section>
+
+<div class="floating-leaves"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const leafContainer = document.querySelector(".floating-leaves");
+
+    function createLeaf() {
+        const leaf = document.createElement("div");
+        leaf.classList.add("leaf");
+        leaf.textContent = "🍃";
+
+        leaf.style.left = Math.random() * 100 + "vw";
+        leaf.style.animationDuration = Math.random() * 3 + 2 + "s"; 
+        leaf.style.fontSize = Math.random() * 20 + 30 + "px"; 
+
+        leafContainer.appendChild(leaf);
+
+        setTimeout(() => {
+            leaf.remove();
+        }, 5000);
+    }
+
+    setInterval(createLeaf, 500); 
+});
+</script>
+
+<section id = "why-sustainability" class="why-sustainability">
+    <h2>Why Sustainability?</h2>
+    <p class="why-text">
+        We believe sustainability is not just a choice but a necessity for a better future. 
+        Our goal is to integrate technology and eco-friendly practices to create long-term solutions 
+        for a healthier planet and economy.
+    </p>
+    <div class="why-boxes">
+        <div class="why-box">
+            <div class="why-box-inner">
+                <div class="why-box-front">
+                    <i class="fas fa-leaf"></i>
+                    <p>Eco-Friendly Solutions</p>
+                </div>
+                <div class="why-box-back">
+                    <p>Innovative AI-driven solutions to minimize carbon footprints and reduce waste.</p>
+                </div>
+            </div>
+        </div>
+        <div class="why-box">
+            <div class="why-box-inner">
+                <div class="why-box-front">
+                    <i class="fas fa-industry"></i>
+                    <p>Sustainable Industries</p>
+                </div>
+                <div class="why-box-back">
+                    <p>AI-powered optimizations in energy and production for greener industries.</p>
+                </div>
+            </div>
+        </div>
+        <div class="why-box">
+            <div class="why-box-inner">
+                <div class="why-box-front">
+                    <i class="fas fa-recycle"></i>
+                    <p>Circular Economy</p>
+                </div>
+                <div class="why-box-back">
+                    <p>Promoting reuse, recycling, and sustainable resource management.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-leaves">
+        <span>🍃</span>
+        <span>🍃</span>
+        <span>🍃</span>
+        <span>🍃</span>
+        <span>🍃</span>
+    </div>
+</section>
+    
+<section id = "impact" section class="impact">
+    <h2>Our Impact</h2>
+    <div class="stats-container">
+        <div class="stat">
+            <h3 data-count="10000">0</h3>
+            <p>Tons of Waste Recycled</p>
+        </div>
+        <div class="stat">
+            <h3 data-count="500">0</h3>
+            <p>Eco-Friendly Businesses Supported</p>
+        </div>
+        <div class="stat">
+            <h3 data-count="75">0</h3>
+            <p>Reduction in Carbon Emissions</p>
+        </div>
+        <div class="stat">
+            <h3 data-count="200">0</h3>
+            <p>Green Energy Projects Launched</p>
+        </div>
+        <div class="stat">
+            <h3 data-count="1500">0</h3>
+            <p>Communities Impacted</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const counters = document.querySelectorAll(".stat h3");
+
+        const animateCounter = (counter) => {
+            const target = +counter.getAttribute("data-count");
+            let count = 0;
+            const duration = 2000; 
+            const steps = 100; 
+            const increment = target / steps;
+            const intervalTime = duration / steps; 
+
+            const updateCount = () => {
+                count += increment;
+                counter.textContent = Math.floor(count);
+                if (count < target) {
+                    setTimeout(updateCount, intervalTime);
+                } else {
+                    counter.textContent = target; 
+                }
+            };
+
+            updateCount();
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.6 });
+
+        counters.forEach(counter => observer.observe(counter));
+    });
+</script>
+
+<section id = "testimonials" section class="testimonials">
+    <h2>What People Say</h2>
+    <div class="testimonial-wrapper">
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <img src="t1.jpg" alt="User 1">
+                <p>"Eco-Tech has transformed the way we think about sustainability. Their solutions are revolutionary!"</p>
+                <h4>Ravi Gupta</h4>
+            </div>
+            <div class="testimonial">
+                <img src="t2.jpg" alt="User 2">
+                <p>"A fantastic initiative! Their impact on the environment is truly commendable."</p>
+                <h4>Ravi Gupta</h4>
+            </div>
+            <div class="testimonial">
+                <img src="t3.jpg" alt="User 3">
+                <p>"I'm amazed by their innovative approach to green technology. Highly recommended!"</p>
+                <h4>David Brown</h4>
+            </div>
+            <div class="testimonial">
+                <img src="t4.jpg" alt="User 4">
+                <p>"Sustainable solutions that are both practical and effective. Kudos to the team!"</p>
+                <h4>Emily Johnson</h4>
+            </div>
+            <div class="testimonial">
+                <img src="t5.jpg" alt="User 5">
+                <p>"An outstanding initiative that truly makes a difference in environmental sustainability."</p>
+                <h4>Michael Lee</h4>
+            </div>
+            <div class="testimonial">
+                <img src="t6.jpg" alt="User 6">
+                <p>"Innovative, impactful, and inspiring. Their work is a game-changer for sustainability!"</p>
+                <h4>Sarah Wilson</h4>
+            </div>
+            <div class="testimonial">
+                <img src="t7.jpg" alt="User 7">
+                <p>"Eco-Tech's vision is exactly what the world needs. A true leader in sustainable tech!"</p>
+                <h4>Oliver Martinez</h4>
+            </div>
+            <div class="testimonial">
+                <img src="t8.jpg" alt="User 8">
+                <p>"They are setting a new standard for green innovation. Absolutely impressed!"</p>
+                <h4>Padma Bhat</h4>
+            </div>
+            <div class="testimonial">
+                <img src="t9.jpg" alt="User 9">
+                <p>"Their approach to eco-friendly business models is revolutionary. Keep up the great work!"</p>
+                <h4>Vikas Malhotra</h4>
+            </div>
+            <div class="testimonial">
+                <img src="t10.jpg" alt="User 10">
+                <p>"Finally, a company that cares about sustainability without compromising on innovation!"</p>
+                <h4>Laura White</h4>
+            </div>
+            <div class="testimonial">
+                <img src="t11.jpg" alt="User 11">
+                <p>"I love how they integrate technology and sustainability in such a seamless way!"</p>
+                <h4>William Harris</h4>
+            </div>
+            <div class="testimonial">
+                <img src="t12.jpg" alt="User 12">
+                <p>"Their solutions are the future! A perfect balance of tech and environmental care."</p>
+                <h4>Sophia Carter</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = "team" section class="team">
+    <h2>Meet Our Team</h2>
+    <div class="team-container">
+        <div class="team-member">
+            <div class="image-wrapper">
+                <img src="aryan.jpg" alt="Team Member 2">
+            </div>
+            <h3 class="neon-text">Aryan Medigeri</h3>
+            <p>Founder and Chief Technology Officer</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="team-member">
+            <div class="image-wrapper">
+                <img src="arnav.jpg" alt="Team Member 1">
+            </div>
+            <h3 class="neon-text">Arnav Shende</h3>
+            <p>Founder & Chief Executive Officer</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+      
+        <div class="team-member">
+            <div class="image-wrapper">
+                <img src="lakshya.jpg" alt="Team Member 3">
+            </div>
+            <h3 class="neon-text">Lakshya Agarwal</h3>
+            <p>Co-Founder & Chief Management Officer</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id = "contact" section class="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="contact-content">
+
+                <div class="contact-details">
+                    <p><i class="fas fa-envelope"></i> contact@ecotech.com</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Green Street, Eco City</p>
+                </div>
+    
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit" class="contact-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>  
+    
+    <section id="map">
+        <h2>Our Location</h2>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11329.590714522832!2d73.88255945340549!3d18.67832028490683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c7cbe596e70b%3A0xff10439adb1b0066!2sMIT%20Alandi%20Campus!5e0!3m2!1sen!2sin!4v1743481757004!5m2!1sen!2sin" 
+            width="100%" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </section>    
+
+    <footer>
+        <p>&copy; 2025 EcoTech. All Rights Reserved.</p>
+    </footer>
+    <script src="transitions.js"></script>
+</body>
+</html>
+ 

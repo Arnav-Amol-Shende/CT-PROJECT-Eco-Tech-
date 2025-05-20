@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Green-Sensei</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="carbonstyle.css"/>
+</head>
+<body>
+
+  <a href="features.html" class="back-button">
+    <i class="fas fa-arrow-left"></i> Back
+  </a>
+
+  <header class="header">
+    <h1><i class="fas fa-robot"></i> Green-Sensei</h1>
+    <p class="tagline"><i class="fas fa-leaf"></i> Smarter Choices. Greener Future.</p>
+  </header>
+
+  <section class="feature-description">
+    <h2><i class="fas fa-circle-info"></i> What This Feature Does</h2>
+    <p>
+      <i class="fas fa-comments"></i> Green Sensei is an AI tool that calculates and helps reduce your carbon footprint by providing personalized, eco-friendly recommendations based on your activities.
+    </p>
+  </section>
+
+  <section class="chat-section">
+    <div class="chat-container">
+      <div class="chat-window" id="chatWindow">
+        <div class="message bot"><i class="fas fa-robot"></i> Hi! How can I help you with sustainable solutions today?</div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type your message..." />
+        <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
